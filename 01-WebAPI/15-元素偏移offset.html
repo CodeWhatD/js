@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      .father {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        margin: 100px 0 0 100px;
+        /*父盒子有定位的时候 获取子盒子偏移量就会相对于父盒子来*/
+        position: relative;
+        /*防止塌陷*/
+        overflow: hidden;
+      }
+      .son {
+        width: 15px;
+        height: 15px;
+        background-color: purple;
+        margin-top: 30px;
+      }
+      .w {
+        width: 200px;
+        height: 200px;
+        margin: 300px 300px;
+        background-color: skyblue;
+      }
+    </style>
+</head>
+<body>
+<div class="father">
+  <div class="son"></div>
+</div>
+
+<div class="w">学习宽高</div>
+</body>
+<script>
+  // 获取这些偏移量都是相对于父盒子的，如果你的父盒子没有定位则相对于body
+  var father = document.querySelector('.father')
+  console.log(father.offsetTop)  // 获取father 相对于body的上偏移
+  console.log(father.offsetLeft) // 获取father 相对于body的左偏移
+
+  var son = document.querySelector('.son')
+  console.log(son.offsetTop)
+  console.log(son.offsetLeft)
+
+  var w = document.querySelector('.w')
+  // 如果有padding 和 border 也会都加在里面
+  console.log(w.offsetWidth) // 获取元素高度
+  console.log(w.offsetHeight) // 获取元素宽度
+
+  console.log(son.offsetParent) // 会获取父元素具有定位的父元素 如果一直往上找都没有定位 则是body
+  console.log(son.parentNode) // 和这个的区别是 这个会返回最亲一级的父元素
+</script>
+</html>
