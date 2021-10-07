@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      .scrollBox {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+      }
+    </style>
+</head>
+<body>
+<div class="scrollBox">拖拽盒</div>
+<script>
+  var scrollbox = document.querySelector('.scrollBox')
+  scrollbox.addEventListener("mousedown",function (e){
+    var x = e.pageX - scrollbox.offsetLeft;
+    var y = e.pageY - scrollbox.offsetTop;
+    document.addEventListener("mousemove",fun) // 不给参数的话，会默认将浏览器默认的事件传进去
+    function fun (e){
+      scrollbox.style.left = (e.pageX - x) + 'px'
+      scrollbox.style.top = (e.pageY - y) + 'px'
+    }
+    // 鼠标弹起 移除鼠标移动事件
+    document.addEventListener("mouseup",function (){
+      console.log('弹起了')
+      document.removeEventListener("mousemove",fun)
+    })
+  })
+</script>
+</body>
+</html>
