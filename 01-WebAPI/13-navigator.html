@@ -5,8 +5,16 @@
     <title>Title</title>
 </head>
 <body>
+<div>到了到了</div>
+<button>后退</button>
 <script>
     // navigator.userAgent 这里面包含了用户从哪个端，哪个浏览器来访问的
+    // 下面代码是配合history学习的
+        var btn = document.querySelector('button')
+        btn.addEventListener('click',function (){
+        history.back()
+    })
+</script>
 </script>
 </body>
 </html>
