@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: purple;
+        border: 10px solid red;
+        padding: 10px;
+      }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+  var div = document.querySelector('.box')
+  console.log(div.clientWidth) // 不包含边框 但包含padding值
+  // 如果开发中 你希望算上这个border值 那么你就用 offsetWidth 反之你可以用clientWidth
+</script>
+</body>
+</html>
