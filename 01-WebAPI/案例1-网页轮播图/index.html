@@ -47,6 +47,7 @@
 		var arrR = document.querySelector('.arrow-r')
 		var cir = document.querySelector('.circle')
 		var ul = document.querySelector('ul')
+		var flag = true  // 节流阀开关 只有当这张图片执行完动画才可以点下一张
 		focus.addEventListener("mouseover",function () {
 			arrL.style.display = "block"
 			arrR.style.display = "block"
@@ -92,45 +93,54 @@
 		var circle = 0
 		// 右侧按钮添加点击事件
 		arrR.addEventListener("click",function () {
-			console.log('点击了')
-			// 当你到了最后一张你再点击时 瞬间将left变为0并且重置num为0 重新划动
-			if(num === ul.children.length - 1){ // 如果已经到了最后一张了 重置一下
-				ul.style.left = 0
-				num = 0
-			}
-			num ++
-			animate(ul,-(focus.offsetWidth)*num)
+			if(flag) {
+				flag = false // 点击之后先关闭节流阀 后面动画执行完毕之后再打开即可
+				// 当你到了最后一张你再点击时 瞬间将left变为0并且重置num为0 重新划动
+				if(num === ul.children.length - 1){ // 如果已经到了最后一张了 重置一下
+					ul.style.left = 0
+					num = 0
+				}
+				num ++
+				animate(ul,-(focus.offsetWidth)*num,function () {
+					flag = true
+				})
 
-			// 下方圆点随着点击箭头变化 图片其实是五张 并且克隆第五张是写在动态生成小圆点后面所以小圆点只有四个
-			circle ++
-			if(circle === cir.children.length) {
-				circle = 0
+				// 下方圆点随着点击箭头变化 图片其实是五张 并且克隆第五张是写在动态生成小圆点后面所以小圆点只有四个
+				circle ++
+				if(circle === cir.children.length) {
+					circle = 0
+				}
+				for(let i=0;i<cir.children.length;i++){
+					cir.children[i].classList.remove("current")
+				}
+				// 因为我们最后还有一个图片 所以我们应该判断一下
+				cir.children[circle].classList.add("current")
 			}
-			for(let i=0;i<cir.children.length;i++){
-				cir.children[i].classList.remove("current")
-			}
-			// 因为我们最后还有一个图片 所以我们应该判断一下
-			cir.children[circle].classList.add("current")
 		})
 
 		// 左侧按钮
 		arrL.addEventListener("click",function () {
-			if(num === 0){ // 如果已经到了第一个 那么让图片直接到最后一张也就是我们克隆的那一张
-				num = ul.children.length - 1
-				ul.style.left = -(num * focus.offsetWidth) + "px"
-			}
-			num --
-			animate(ul,-(focus.offsetWidth)*num)
+			if(flag) {
+				flag = false
+				if(num === 0){ // 如果已经到了第一个 那么让图片直接到最后一张也就是我们克隆的那一张
+					num = ul.children.length - 1
+					ul.style.left = -(num * focus.offsetWidth) + "px"
+				}
+				num --
+				animate(ul,-(focus.offsetWidth)*num,function () {
+					flag = true
+				})
 
-			circle --
-			if(circle < 0) { // 如果你的小圆点再减一 变为负的 证明你点击左侧按钮想从第一张到最后一张，那么应该给最后一个小圆点添加被点击中的样式
-				circle = cir.children.length - 1
+				circle --
+				if(circle < 0) { // 如果你的小圆点再减一 变为负的 证明你点击左侧按钮想从第一张到最后一张，那么应该给最后一个小圆点添加被点击中的样式
+					circle = cir.children.length - 1
+				}
+				for(let i=0;i<cir.children.length;i++){
+					cir.children[i].classList.remove("current")
+				}
+				// 因为我们最后还有一个图片 所以我们应该判断一下
+				cir.children[circle].classList.add("current")
 			}
-			for(let i=0;i<cir.children.length;i++){
-				cir.children[i].classList.remove("current")
-			}
-			// 因为我们最后还有一个图片 所以我们应该判断一下
-			cir.children[circle].classList.add("current")
 		})
 		// 自动播放 注意上面的鼠标经过与鼠标离开的开始定时与清空定时
 		var timer = setInterval(function () {
