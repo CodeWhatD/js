@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<script>
+  var div = document.querySelector("div")
+  div.addEventListener("touchstart",function (e){
+    console.log(e.touches) // 获取你几个手指按到了屏幕上面
+    console.log(e.targetTouches) // 获取你几个手指按到了该元素上面
+    console.log(e.changedTouches) // 触摸时可以获取你的几个手指，离开时获取你的几个手指
+    console.log(e.targetTouches[0]) // 可以获取你手指触摸的点的信息，有坐标等等
+    // 开发时一般用e.targetTouches
+  })
+  div.addEventListener("touchend",function (e) {
+    console.log(e.changedTouches) // 离开时也可以获取你的手指
+  })
+</script>
+</body>
+</html>
