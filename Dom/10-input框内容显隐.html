@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="手机">
+<script>
+    var ipt = document.querySelector('input')
+    ipt.onfocus = function () {
+        if(ipt.value === "手机") {
+            ipt.value = ""
+        }
+    }
+    ipt.onblur = function () {
+        if(ipt.value === "") {
+            ipt.value = "手机"
+        }
+    }
+</script>
+</body>
+</html>
