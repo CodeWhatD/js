@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>点击一下</button>
+<input type="text" placeholder="请输入内容">
+</body>
+<script>
+  var btn = document.querySelector("button")
+  var ipt = document.querySelector('input')
+  btn.onclick = function () {
+    ipt.value = '已点击' // 修改input中的内容 不是innerHtml 表单元素值是value
+    btn.disabled = true // 讲按钮禁用，为按钮添加disabled属性
+  }
+</script>
+</html>
