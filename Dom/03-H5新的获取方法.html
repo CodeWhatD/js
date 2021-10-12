@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div class="box">盒子1</div>
+  <div class="box">盒子2</div>
+  <script>
+    var firstBox = document.querySelector('.box')
+    console.log(firstBox) // querySelector只会获取该选择器的第一个元素
+
+    var allBox = document.querySelectorAll('.box')
+    console.log(allBox) // 会获取所有的复合选择器的元素，伪数组
+  </script>
+</body>
+</html>
