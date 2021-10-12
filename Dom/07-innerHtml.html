@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div>
+    文字中心
+    <p>我是P</p>
+  </div>
+  <script>
+    var textDetail = document.querySelector('div').innerText // 只会打印文字并且不会保留空格 打印 文字中心我是p
+    var htmlDetail = document.querySelector('div').innerHTML // 会打印标签并且会保留空格
+    console.log(textDetail)
+    console.log(htmlDetail)
+  </script>
+</body>
+</html>
