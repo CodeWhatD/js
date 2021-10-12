@@ -5,6 +5,34 @@
     <title>Title</title>
 </head>
 <body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <ol id="olList">
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+    <li>d</li>
+    <li>e</li>
+  </ol>
+  <script>
+    var lis = document.getElementsByTagName("li")
+    for(let i=0;i<lis.length;i++) {
+      console.log("所有li")
+      console.log(lis[i]) // 获取所有li标签内容
+    }
 
+    // 需求 只获取ul中的li
+    var ol = document.getElementById("olList")
+    var ollist = ol.getElementsByTagName("li")
+    for(let i=0;i<ollist.length;i++) {
+      console.log("ol中的所有li")
+      console.log(ollist[i]) // 获取所有li标签内容
+    }
+  </script>
 </body>
 </html>
