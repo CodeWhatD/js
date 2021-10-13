@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div data-index="ok" data-list-name="andy"></div>
+<script>
+    var idv = document.querySelector("div")
+    // h5 定义了一个规范 凡是自己自定义的属性都以 data- 开头
+    // 如果你的自定义属性是 data-list-name 那么你在获取的时候应该使用驼峰命名  idv.getAttribute("listName")
+
+    console.log(idv.getAttribute('data-index')) // 11
+    console.log(idv.dataset.index) // 11  dataset 是所有你自定义属性的列表
+    console.log(idv.getAttribute('data-list-name')) // andy
+    console.log(idv.dataset.listName) // andy
+
+</script>
+</body>
+</html>
