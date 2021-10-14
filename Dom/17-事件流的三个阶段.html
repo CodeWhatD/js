@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      .father {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+      }
+      .son {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        background-color: black;
+      }
+    </style>
+</head>
+<body>
+<div class="father">
+  <div class="son"></div>
+</div>
+<script>
+  // 捕获阶段 -》  捕获阶段简单来说就是从最顶层往最里层开始 从document开始
+  // 事件冒泡 -》  从最里面往最外面开始
+
+
+  // 演示 捕获阶段 也就是监听器的第三个参数  true为捕获 False为冒泡
+  // var son = document.querySelector(".son")
+  // var father = document.querySelector(".father")
+  // son.addEventListener("click",function () {
+  //   alert("son")
+  // },true)
+  // father.addEventListener("click",function () {
+  //   alert("father")
+  // },true)
+
+  // 演示 冒泡 默认就是冒泡
+  var son = document.querySelector(".son")
+  var father = document.querySelector(".father")
+  son.addEventListener("click",function () {
+    alert("son")
+  })
+  father.addEventListener("click",function () {
+    alert("father")
+  })
+</script>
+</body>
+</html>
