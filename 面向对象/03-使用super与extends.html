@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Father {
+    constructor(x,y) {
+      this.x = x
+      this.y = y
+    }
+    sum() {
+      console.log(this.x + this.y)
+    }
+  }
+
+  class Son extends Father{
+    constructor(x,y) {
+      // super 是调用一下父类的构造函数
+      // 这里如果想使用父类的sum方法必须调用super函数 因为sum中的this指向是指向父类的
+      super(x,y);
+    }
+  }
+
+  var son = new Son(1,2)
+  son.sum()
+</script>
+</body>
+</html>
