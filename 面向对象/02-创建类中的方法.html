@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animal{
+        constructor(aname,age) {
+            this.aname = aname
+            this.age = age
+        }
+        // 类中方法之间不需要有逗号隔开
+        sing(sname) { // 需要一个歌名
+            console.log(this.aname + sname)
+        }
+    }
+
+    var a1 = new Animal('浣熊',18)
+    var a2 = new Animal('松鼠',18)
+
+    console.log(a1)
+    console.log(a2)
+
+    a1.sing('河山大好')
+    a2.sing('夜曲')
+</script>
+</body>
+</html>
