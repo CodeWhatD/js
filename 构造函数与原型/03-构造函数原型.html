@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*
+        构造函数创建对象方便，但是非常浪费内存 比如每个实例对象都想有一个sing方法 那么sing方法
+        在实例对象生成的时候都会开辟一个新的内存地址来保存这个方法就很浪费内存 因为代码都是一样的
+        怎么解决呢？ 利用原型的概念 原型就是一个对象，所有的构造函数都有原型对象，这个原型对象是
+        用来共享属性和方法的
+    */
+
+    function Start(uname,uage){
+        this.uname = uname
+        this.uage = uage
+    }
+    Start.prototype.sing = function () {
+        console.log("唱歌呢")
+    }
+
+    var ldh = new Start("刘德华",11)
+    var zxy = new Start("张学友",12)
+
+    ldh.sing() // 唱歌呢
+    zxy.sing() // 唱歌呢
+    // 这样 下面所有实例对象都可以调用这个方法 并且不会开辟新的内存空间来保存这个方法
+
+    console.log(ldh.sing === zxy.sing) // 比较的是内存地址 这里返回true 说明是共享的一个方法
+</script>
+</body>
+</html>
