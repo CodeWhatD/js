@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Father = function (uname,uage) {
+        this.uname = uname
+        this.uage = uage
+    }
+
+    // 给父亲一个方法
+    Father.prototype.sing = function () {
+        console.log("我爱唱歌")
+    }
+    var Son = function (uname,uage,age) {
+        // 如果使用Father来定义这两个属性呢 我们可以使用call方法改变指向
+        this.age = age
+        Father.call(this,uname,uage)
+        // 解释 本身call()方法就是执行函数所以这里执行了Father然后又利用了该方法改变this指向的功能 等于父类中执行this.uname的时候this其实是Son的
+    }
+    // 子来继承父类的唱歌方法
+    // 首先 如果我们直接将 Son.prototype = Father.prototype 那么儿子的原型会指向父亲的原型 那么这时候你给儿子的原型加方法的时候 这个方法会给到父亲的原型上这是不行的，因为你想要子单独有这个方法
+    Son.prototype = new Father() // 利用实例化 构造出来一个Father的实例化对象 让子指向它，这时候子就能访问到父亲的方法并且实例对象和父亲的原型是隔离的，子怎么改也不会改变父的原型
+    // 产生的问题 因为你是直接将子的构造指向了一个对象 也就是实例化的Father对象 这时候你是没有constructor的 你需要手动指回Son
+    Son.prototype.constructor = Son
+    var son1 = new Son("小明","小白",18)
+    son1.sing() // 这时候 子就已经继承成功了
+</script>
+</body>
+</html>
