@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>按钮</button>
+<script>
+    var btn = document.querySelector("button")
+    btn.addEventListener("click",function () {
+        this.disable = true
+        setTimeout(function () {
+            this.disable = false
+        }.bind(this),2000)
+
+        // 解释 我们点击按钮然后给他禁用，禁用之后在三秒之后给他恢复，这时候你定时器是一个作用域里面的this不好找，你只能在外层给一个that
+        // 或者直接找到btn这个对象来给他的disable变为false 但是这也很麻烦
+        // 使用bind()改变this并且不会立即执行这个函数
+    })
+</script>
+</body>
+</html>
