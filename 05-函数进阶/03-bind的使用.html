@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var o = {
+    name:"andy"
+  }
+
+  var fn = function (a,b) {
+    console.log(this)
+    console.log(a+b)
+  }
+
+  var newfn = fn.bind(o,1,2)
+  // bind(你要改变的this,参数1，参数2....)
+  // bind不会执行函数，只是返回一个修改过this和给到参数的函数
+  newfn()
+</script>
+</body>
+</html>
