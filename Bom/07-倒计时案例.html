@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <span class="hour"></span>
+    <span class="minute"></span>
+    <span class="second"></span>
+</div>
+<script>
+    var hour = document.querySelector('.hour')
+    var minute = document.querySelector('.minute')
+    var second = document.querySelector('.second')
+    var usertime = +new Date('2021-10-7 18:00:00') // 获取用户输入的时间
+    var timecallback = function () {
+        var currentTime = +new Date() // 获取当前的时间
+        console.log('usertime'+usertime,'currentTime'+currentTime)
+        var times = (usertime - currentTime) / 1000 // 还有多少秒到达用户输入的时间
+        var h = parseInt(times / 60 / 60 % 24) // 用parseInt获取还有多少小时 parseInt 直接砍掉小数，非四舍五入
+        var hourTime = h < 10 ? `0${h}` : h
+        hour.innerHTML = hourTime
+        var m = parseInt(times / 60 % 60)
+        var minuteTime = m < 10 ? `0${m}` : m
+        minute.innerHTML = minuteTime
+        var s = parseInt(times % 60)
+        var secondTime = s <10 ? `0${s}` : s
+        second.innerHTML = secondTime
+    }
+    timecallback() // 先执行一次 因为刷新之后应该立即执行一次 而不是等待一秒执行
+    window.setInterval(timecallback,1000); // 每搁一秒调用timecallback函数
+</script>
+</body>
+</html>

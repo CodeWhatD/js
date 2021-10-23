@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            background-color: pink;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好
+</div>
+<script>
+    var div = document.querySelector("div")
+    console.log(div.scrollHeight) // 会算上整个内容那个撑开盒子之后的大小 虽然有overflow:auto
+    console.log(div.offsetHeight) // 220
+    div.addEventListener("scroll",function () {
+        console.log(this.scrollTop) // 这里打印的是 滚动条卷过去的上面的内容
+    })
+</script>
+</body>
+</html>

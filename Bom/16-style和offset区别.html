@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      .fa {
+        width: 100px;
+        height: 100px;
+        background-color: springgreen;
+      }
+    </style>
+</head>
+<body>
+<div class="fa"></div>
+<script>
+  var fa = document.querySelector('.fa')
+  console.log(fa.offsetWidth)
+  console.log(fa.style.width)
+  // 1.offset可以获取任意元素的宽高 而style只能获取行内样式的宽高也就是你想用style.width获取只能在元素内部写样式
+  // 2.offset获取的是数字型而style获取的是字符串带有单位的
+  // 3.offset获取的是包含padding和border的 而style不可以
+  // 4.offset只读而style可以修改
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      .father {
+        width: 400px;
+        height: 400px;
+        background-color: pink;
+      }
+      .son {
+        width: 200px;
+        height: 200px;
+        background-color: purple;
+      }
+    </style>
+</head>
+<body>
+<div class="father">
+  <div class="son"></div>
+</div>
+<script>
+  var father = document.querySelector('.father')
+  father.addEventListener('mouseover',function () {
+    console.log('经过了')
+  })
+  // mouseover 会冒泡到父盒子 经过父盒子会触发一次再经过子盒子的时候，子盒子没有就往上冒泡，冒泡到父盒子
+
+  // mouseenter 不会冒泡只会给自己本身的盒子添加事件 它可以配合mouseout使用 同样不会冒泡
+</script>
+</body>
+</html>

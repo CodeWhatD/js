@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Father = function (uname,uage) {
+        this.uname = uname
+        this.uage = uage
+    }
+
+    var Son = function (uname,uage,age) {
+        // 如果使用Father来定义这两个属性呢 我们可以使用call方法改变指向
+        this.age = age
+        Father.call(this,uname,uage)
+        // 解释 本身call()方法就是执行函数所以这里执行了Father然后又利用了该方法改变this指向的功能 等于父类中执行this.uname的时候this其实是Son的
+    }
+
+    var son1 = new Son("小明","小白",18)
+    console.log(son1)
+</script>
+</body>
+</html>

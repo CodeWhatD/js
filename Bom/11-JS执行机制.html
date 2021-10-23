@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(1)
+    setTimeout(function (){
+        console.log(2)
+    },2000)
+    console.log(3)
+    /*
+        同步任务与异步任务
+        对于上面的例子 console.log(1),setTimeout,console.log(3) 都是同步任务
+        function(){ console.log(2) } 这是回调函数也就是异步任务
+        执行机制：先执行同步任务，同步任务执行过后去异步任务队列找异步任务，将异步任务放到同步任务最下面开始执行
+    */
+
+    /*
+        异步执行机制
+        console.log(1)
+        document.onclick = fn
+        console.log(2)
+        setTimeout(){fn,3000}
+
+        解释：当同步任务执行完成之后会和异步任务队列形成事件循环，意思就是同步任务执行完成之后会不断的看异步任务队列如果有就
+        加入到同步任务底下执行
+        代码：先打印1 然后打印2 然后setTimeout是同步任务，三秒之后会将fn放到异步队列中，然后拿出来执行，而document的点击
+        事件，是你在点击的时候才会加入到异步队列中，如果你一直不点击，那么同步队列也会一直看你的异步队列里面有没有任务，一旦有了
+        就放到同步队列中执行
+     */
+</script>
+</body>
+</html>

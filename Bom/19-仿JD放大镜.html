@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 500px;
+            position: relative;
+            top: 200px;
+            left: 200px;
+        }
+        .box img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .mask {
+            display: none;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background-color: yellow;
+            opacity: .5;
+        }
+        .big {
+            /*display: none;*/
+            width: 600px;
+            height: 600px;
+            position: relative;
+            left: 450px;
+            overflow: hidden;
+            /*background-color: pink;*/
+            z-index: 999;
+        }
+        .big img {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="./img/347d2e6e14ea87d2.jpg" alt="">
+        <div class="mask"></div>
+        <div class="big">
+            <img src="./img/347d2e6e14ea87d2.jpg" alt="" class="bigImg">
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box')
+        var mask = document.querySelector('.mask')
+        var big = document.querySelector('.big')
+        box.addEventListener('mouseover',function () {
+            mask.style.display = "block"
+            big.style.display = "block"
+        })
+        box.addEventListener('mouseout',function () {
+            mask.style.display = "none"
+            big.style.display = "none"
+        })
+        // 遮罩层跟着鼠标移动
+        box.addEventListener('mousemove',function (e) {
+            // 首先获取鼠标在盒子内的坐标
+            var x = e.pageX - this.offsetLeft
+            var y = e.pageY - this.offsetTop
+            // 移动mask遮罩层
+            var maskX = x - mask.offsetWidth / 2
+            var maskY = y - mask.offsetHeight / 2
+            // 限制黄色遮罩层X超出范围
+            var boxMaxX = this.offsetWidth - mask.offsetWidth
+            var boxMaxY = this.offsetHeight - mask.offsetHeight
+            if(maskX < 0){ // 出国超出左侧盒子的范围了则让maskX为0
+                maskX = 0
+            }else if(maskX >= boxMaxX){
+                // 如果遮罩层盒子在大盒子中的左偏移位置 大于了遮罩层盒子顶到右边的距离，那么让它一直定位到右边卡死就行
+                maskX = boxMaxX
+            }
+            // 限制黄色遮罩层Y超出范围
+            if(maskY<0){
+                maskY = 0
+            }else if(maskY >=boxMaxY){
+                maskY = boxMaxY
+            }
+            mask.style.left = maskX + 'px' // 因为我们想让鼠标定位到盒子的正中央 所以需要宽度往左mask的一半 高度也是
+            mask.style.top = maskY+ 'px'
+
+            // 右侧大图跟随移动
+            var bigImg = document.querySelector('.bigImg')
+            // 注意1 左侧的移动和右侧应该是等比例的移动的
+            var bigMaxX = bigImg.offsetWidth - big.offsetWidth
+            // 大盒子的最大移动距离 注意图片是比装图片盒子大的 这样可以实现放大
+
+            var bigX = maskX * bigMaxX / boxMaxX // 获取等比例的大盒子移动
+            var bigY = maskY * bigMaxX / boxMaxY // 获取等比例的大盒子移动
+
+            bigImg.style.left = -bigX+'px'
+            bigImg.style.top = -bigY+'px'
+        })
+    </script>
+</body>
+</html>

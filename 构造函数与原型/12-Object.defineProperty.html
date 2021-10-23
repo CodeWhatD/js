@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Object.defineProperty(obj,prop,descriptor)
+  // obj 就是你要操作哪个对象
+  // prop 就是你要定义新的或者你要修改的
+  // descriptor 配置
+    // value 设置属性的值，默认是undefined
+    // writable 值是否可以重写
+    // enumerable 值是否可以遍历出来
+    // configurable 属性是否可以被删除或者被再次修改 并且无法修改设置第三个配置项
+
+  var obj = {
+    id:1,
+    name:'小花',
+    age:18
+  }
+  console.log("-----------1.修改name属性为小红-----------")
+  // 1.修改name属性为小红
+  Object.defineProperty(obj,"name",{
+    value:'小红'
+  })
+  console.log(obj)
+  console.log("-----------2.增加一个num 属性-----------")
+  // 2.增加一个num 属性
+  Object.defineProperty(obj,"num",{
+    value:1000
+  })
+  console.log(obj)
+  console.log("-----------3.将num值设置为不可以修改-----------")
+  // 3.将num值设置为不可以修改
+  Object.defineProperty(obj,"num",{
+    writable:false
+
+  })
+  obj.num = 2000
+  console.log(obj) // num还是1000
+  console.log("-----------4.将name设置为不可以遍历出来-----------")
+  // 4.将name设置为不可以遍历出来 这里注意一个事情：如果你是用Object.defineProperty新添加的属性，那么它的enumerable默认就是false不可以遍历
+  Object.defineProperty(obj,"name",{
+    enumerable:false
+  })
+  console.log(Object.keys(obj)) // ['id','age'] 没有name 是因为name是通过Object.defineProperty添加的
+  console.log("-----------5.利用configurable 将age属性设置为不可以修改并且不能删除-----------")
+  // 5.利用configurable 将age属性设置为不可以修改并且不能删除
+  Object.defineProperty(obj,"age",{
+    configurable:true
+  })
+  delete obj.age
+  console.log(obj) // 即便用了delete 也是没法删除 obj.age
+</script>
+</body>
+</html>

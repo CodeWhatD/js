@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>按钮</button>
+<script>
+    var btn = document.querySelector("button")
+    btn.addEventListener("click",function (e) {
+        console.log(e)
+        // e就是事件对象 这是一个形参 会打印你鼠标对像的各种信息 比如坐标等等 键盘事件也可以监听 比如可以看到你按了什么键
+    })
+</script>
+</body>
+</html>

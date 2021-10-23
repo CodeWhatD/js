@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    * Bom指的是浏览器窗口对象，顶级是Window
+    * */
+    var num = 10
+    console.log(num)
+    console.log(window.num)
+    // 全局变量直接挂到window上
+
+    function abc(){
+        console.log('1111')
+    }
+    abc()
+    window.abc()
+    // 函数也会挂到window 全局作用域下的函数
+</script>
+</html>

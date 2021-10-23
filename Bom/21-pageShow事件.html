@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // pageShow 与 load 区别
+    window.addEventListener('load',function (){
+        alert('load事件')
+    })
+    // load 在刷新与从别的页面退回或者a标签 都会触发，但是在火狐浏览器会有一个历史缓存在退回的时候并不会触发所以要使用pageShow事件
+    // flexiable内部也是运用了这个pageShow事件来重新定义页面字体大小
+
+    window.addEventListener('pageshow',function (e){
+        if(e.persisted) { // 如果你是从别的页面退回回来的 那么e.persisted 就是true
+            console.log('我是从别的地方来的')
+        }
+    })
+    //
+</script>
+</body>
+</html>

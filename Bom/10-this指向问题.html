@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>按钮</button>
+<script>
+    // 秉着一个 谁调用this就是谁
+    console.log(this)  // window调用就是window
+    var obj = {
+        sayH:function (){
+            console.log(this) // 打印obj对象 因为是obj调用
+        }
+    }
+    var btn = document.querySelector("button")
+    btn.onclick = function (){
+        console.log(this) // 打印<button>按钮</button> 打印是元素 因为该元素调用了它
+        var timer = setTimeout(function (){
+            console.log(this) // 这里打印的是window 因为setTimeout是window调用的
+        },1000)
+    }
+    var Fun = function (){
+        console.log(this)
+    }
+    var fun = new Fun() // 这里通过构造函数实例化的对象 this都会指向实例化对象
+</script>
+</body>
+</html>

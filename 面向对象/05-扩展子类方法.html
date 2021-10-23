@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  class Father {
+    constructor(x,y) {
+      this.x = x
+      this.y = y
+    }
+    sum() {
+      console.log(this.x + this.y)
+    }
+  }
+
+  class Son extends Father{
+    constructor(x,y) {
+      // 因为这里要让子类也能用父类的加法 所以要用super 但是有一个规范 super要写在子类this的之前
+      super(x,y);
+      this.x = x
+      this.y = y
+    }
+    sub() {
+      console.log(this.x - this.y)
+    }
+  }
+
+  var son = new Son(1,2)
+  son.sum()
+  son.sub()
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // setTimeout(函数，延迟时间) 延迟时间过后执行前面那个函数，第二个参数也就是延迟时间可以是0
+    var callback1 = function () {
+        console.log('三秒的爆炸了')
+    }
+    var callback2 = function () {
+        console.log('五秒的爆炸了')
+    }
+    var timer1 = setTimeout(callback1,3000)
+    var timer2 = setTimeout(callback2,5000)
+</script>
+</body>
+</html>

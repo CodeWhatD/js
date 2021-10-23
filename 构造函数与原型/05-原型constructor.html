@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function Start(uname,uage){
+    this.uname = uname
+    this.uage = uage
+  }
+  Start.prototype.sing = function () {
+    console.log("唱歌呢")
+  }
+  var ldh = new Start("刘德华",18)
+  // 原型中都有一个constructor 指向的是构造函数
+  console.log(Start.prototype.constructor) // 打印 Start构造函数
+  console.log(ldh.__proto__.constructor)   // 打印 Start构造函数
+</script>
+</body>
+</html>

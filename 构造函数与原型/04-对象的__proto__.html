@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Start(uname,uage){
+        this.uname = uname
+        this.uage = uage
+    }
+    Start.prototype.sing = function () {
+        console.log("唱歌呢")
+    }
+
+    var ldh = new Start("刘德华",18)
+    console.log(ldh.__proto__)
+
+    /*
+       为什么ldh实例对象可以调用sing方法呢 因为它首先会在自己这里找sing方法然后找不到
+       但是自己有一个__proto__ 这个属性指向构造函数的 prototype 然后构造函数的原型是有的
+       所以可以调用sing方法
+    */
+
+</script>
+</body>
+</html>
