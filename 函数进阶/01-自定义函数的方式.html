@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 1.自定义
+  function abc() {
+    console.log("我是自定义的")
+  }
+
+  // 匿名形式
+  var bac = function () {
+    console.log("我是匿名方式的")
+  }
+
+  // 通过Function实例化来
+  // new Function("参数1","参数2","函数体")
+  var acb = new Function("a","b","console.log(a+b)")
+  acb(1,2)
+
+  // 这个Function 用的很少但是我们通过这个可以知道 所有的函数其实也是对象
+</script>
+</body>
+</html>
