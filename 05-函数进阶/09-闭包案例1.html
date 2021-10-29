@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+  <li>胖胖虎</li>
+  <li>胖胖牛</li>
+  <li>胖胖猪</li>
+  <li>胖胖羊</li>
+</ul>
+</body>
+<script>
+  var lis = document.querySelectorAll("li")
+  for(var i=0;i<lis.length;i++) {
+    (function (num) {
+      lis[num].onclick = function () {
+        console.log(num)  //这里使用的num 就是外层自执行的参数 这就是闭包
+      }
+    })(i)
+  }
+</script>
+</html>
