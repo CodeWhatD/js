@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 说白了闭包就是可以延申变量的使用范围，函数内部的变量再外面可以使用
+    var fn = function () {
+        var num = 10
+        return function () {
+            console.log(num)
+        }
+    }
+
+
+    // num 是一个局部作用域中的变量 外面如何再外界来访问呢
+    var f = fn() // fn()返回一个函数 这个函数是闭包 它返回一个函数 这个函数里面可以访问到闭包函数中的变量
+    f() // 10
+</script>
+</body>
+</html>
