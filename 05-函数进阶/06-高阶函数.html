@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 高阶函数其实就是一个函数中对另一个函数进行操作 比如返回值是一个函数 参数是一个函数这种就叫高阶函数
+    var fn = function (a,b,callback) {
+        console.log(a,b)
+        callback && callback()
+    }
+
+    fn(1,2,function () {
+        console.log("你好啊")
+    })
+</script>
+</body>
+</html>
