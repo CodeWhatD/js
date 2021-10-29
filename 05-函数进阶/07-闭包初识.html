@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 闭包： 一个函数可以访问另一个函数作用域中的局部变量称之为闭包
+    var fn = function () {
+        var num = 0
+        function fun() {
+            console.log(num)
+        }
+        fun()
+    }
+    fn()
+</script>
+</body>
+</html>
