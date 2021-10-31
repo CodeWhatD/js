@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+  var reg = /^[abc]/ // 以 a或者b或者c 任意的一个开头都行
+  console.log(reg.test("azz")) // true
+  console.log(reg.test("bzz")) // true
+  console.log(reg.test("czz")) // true
+  console.log(reg.test("zcc")) // false
+
+  var reg1 = /^[a-zA-Z0-9]/ // 字母a-z 大写字母A-Z  数子0-9 这个范围开头都可以。
+  console.log(reg1.test("Jaa")) // true
+  console.log(reg1.test("5")) // true
+
+
+  // 注意 如果在[]括号中出现^ [^a-zA-Z0-9] 这不是表示以什么开头而是取反 就是你括号里面的内容都不允许出现
+
+  var reg2 = /^[^a-zA-Z0-9]/ // 字母a-z 大写字母A-Z  数子0-9 这个范围开头都不可以。
+  console.log(reg2.test("Jaa")) // false
+  console.log(reg2.test("5")) // false
+  console.log(reg2.test("!")) // true
+</script>
+</body>
+</html>
