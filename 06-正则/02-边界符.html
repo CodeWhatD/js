@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	var rg = /^abc/ // 必须以abc来开头
+	console.log(rg.test("abc")) // true
+	console.log(rg.test("abcd")) // true
+	console.log(rg.test("aac")) // false
+
+	var reg = /^abc$/ // 必须以abc开头 结尾也是abc
+	console.log(reg.test("abc")) // true
+	console.log(reg.test("ccabc")) // false
+	console.log(reg.test("abcabc")) // false
+
+	var reg1 = /abc$/ // 必须以abc结尾
+	console.log(reg1.test("abc")) // true
+	console.log(reg1.test("ccabc")) // true
+</script>
+</body>
+</html>
