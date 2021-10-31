@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<textarea></textarea>
+<button>提交</button>
+<div></div>
+
+<script>
+  var text = document.querySelector("textarea")
+  var btn = document.querySelector("button")
+  var idv = document.querySelector("div")
+
+  btn.addEventListener("click",function () {
+    var newText = text.value.replace(/激情/g,"**")
+    // 把字符串中包含激情的字符全部换成**
+    idv.innerText = newText
+
+    // 模式
+    // g 全局 全局搜索你这个字符 只要符合就替换
+    // i 忽略大小写
+    // gi 全局搜索+忽略大小写
+  })
+</script>
+</body>
+</html>
