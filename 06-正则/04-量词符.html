@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+  // 量词符*,表示可以出现0次或多次
+  // var reg9 = /^a*$/
+  // console.log(reg9.test('aaa')); //true
+  // console.log(reg9.test('')); //true
+
+  // 量词符+,表示可以出现1次或多次
+  // var reg10 = /^a+$/
+  // console.log(reg10.test('aaa')); //true
+  // console.log(reg10.test('')); //false
+
+  // 量词符?,表示可以出现0次或1次
+  // var reg11 = /^a?$/
+  // console.log(reg11.test('aaa')); //false
+  // console.log(reg11.test('')); //true
+
+
+  // {}只会让这个左括号的前面一个字符重复多少次
+  // 量词符{3},必须重复3次
+  // var reg12 = /^a{3}$/
+  // console.log(reg12.test('aaaa')); //false
+  // console.log(reg12.test('aaa')); //true
+
+  // 量词符{3,}，必须连续重复3次以上
+  // var reg13 = /a{3,}/
+  // console.log(reg13.test('aa')); //false
+  // console.log(reg13.test('aaa')); //true
+  // console.log(reg13.test('asaa')); //false
+
+  // 量词符{3,5}，必须重复3到5次
+  // var reg14 = /a{3,5}/
+  // console.log(reg14.test('aaaavc')); //true
+</script>
+</body>
+</html>
