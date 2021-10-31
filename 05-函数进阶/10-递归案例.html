@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+  var data = [{id:1,name:"电冰箱",goods:[{id:11,name:"小冰箱"}]}
+              ,{id:2,name:"电视机"}]
+
+  var findGoods = function (data,id) {
+    data.forEach(function (item) {
+      if(item.id === id) {
+        console.log(item)
+      }else if(item.goods && item.goods.length >0) {
+        findGoods(item.goods,id)
+      }
+    })
+  }
+
+  findGoods(data,11)
+
+</script>
+</body>
+</html>
