@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+  var reg = /^(abc){3}/ // 让abc重复三次
+  console.log(reg.test("abc")) // false
+  console.log(reg.test("abcc")) // false
+  console.log(reg.test("abcabcabc")) // true
+
+
+  var rg = /^abc{3}/ // 以abc开头 c重复三次
+  console.log(rg.test("axccc")) // false
+  console.log(rg.test("abccc")) // true
+</script>
+</body>
+</html>
