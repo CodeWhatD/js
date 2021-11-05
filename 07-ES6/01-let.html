@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // 1.变量无法重复声明
+  let a = 1
+  // let a = 2  error
+
+  // 2.块级作用域
+  {
+    let b = 2
+  }
+  // console.log(b)  error
+
+  // 3.不存在变量提升
+  // console.log(c)  error
+  let c = 1
+
+  // 4.不影响作用域链
+  {
+    let school = "仁爱学院"
+    let fn = function () {
+      console.log(school)
+    }
+    fn() // 仁爱学院
+  }
+</script>
+</body>
+</html>
