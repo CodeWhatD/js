@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<script>
+  // 1.数组的合并
+  let a = [1,2,3]
+  let b = [4,5,6]
+  let c = [...a,...b]
+  console.log(c) // 1,2,3,4,5,6
+
+  // 2.数组的克隆 这里注意如果你想克隆的数组中包含引用型那么还是浅拷贝
+
+  let ar = ["E","G","埃蒙"]
+  let cloneAr = [...ar]
+  console.log(cloneAr) // "E","G","埃蒙"
+</script>
+</body>
+</html>
