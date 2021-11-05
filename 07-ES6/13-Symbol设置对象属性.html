@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let obj = {
+    name:"dmy",
+    up(){
+      console.log("我是up")
+    },
+    down(){
+      console.log("你好啊")
+    }
+  }
+
+  let ani = {
+    up:Symbol(),
+    down:Symbol()
+  }
+  // 虽然obj中已经有了 up与down了，之后我们再想添加up，down方法的时候，假设我们不知道它已经有了，当再次添加的时候为了防止污染所以用Symbol这种来添加
+  obj[ani.up] = function () {
+    console.log("我是Symbol中的up")
+  }
+  obj[ani.down] = function () {
+    console.log("我是Symbol中的dwon")
+  }
+
+  console.log(obj)
+
+
+  let youxi = {
+    [Symbol("lol")]:function () {
+      console.log("完low")
+    },
+    [Symbol("wzry")]:function () {
+      console.log("完wzry")
+    },
+  }
+  console.log(youxi)
+</script>
+</body>
+</html>
