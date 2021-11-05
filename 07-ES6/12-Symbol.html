@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let s1 = Symbol("你好")
+  let s2 = Symbol("你好")
+  console.log(s1 === s2) // false
+  console.log(typeof s1) // Symbol
+
+
+  let s3 = Symbol.for("你好")
+  let s4 = Symbol.for("你好")
+  console.log(s3 === s4) // true
+
+  // Symbol 不能做任何运算
+
+</script>
+</body>
+</html>
