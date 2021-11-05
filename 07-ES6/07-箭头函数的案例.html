@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    // 1.需求1 三秒之后div变为蓝色
+    var idv = document.querySelector("div")
+    idv.addEventListener("click",function () {
+        setTimeout(()=>{
+            // 这里你想找到idv这个对象改样式 之前是在外层定义一个_this=this来实现，使用箭头函数因为箭头函数定义的地方的作用域的this就是div对象
+            this.style.backgroundColor = "blue"
+        },2000)
+    })
+
+    // 2.需求2 筛选数组中的值
+    let arr = [1,2,3,4,5,6]
+    // 老方法
+    // let newArr = arr.filter(function (item) {
+    //     return item % 2 === 0
+    // })
+    // console.log(newArr) // 2,4,6
+
+    // 新方法
+    let newArr = arr.filter((item)=>item % 2 === 0)
+    console.log(newArr)
+</script>
+</body>
+</html>
