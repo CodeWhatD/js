@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // 函数默认值
+  let fn = function (a,b,c=10) {
+    console.log(a + b + c)
+  }
+  fn(1,3)
+
+  // 解构相结合
+  let obj = {
+    localhost:"1.2.1232.1",
+    name:"独门",
+    age:18
+  }
+
+  let fn2 = function ({localhost="我是默认值",name,age}) {
+    // 如果对象中设置了值 那么默认值失效 否则就会用默认值
+    console.log(localhost)
+    console.log(name)
+    console.log(age)
+  }
+  fn2(obj)
+</script>
+</body>
+</html>
