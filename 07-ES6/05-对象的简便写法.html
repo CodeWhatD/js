@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let name = "dmy"
+    let fn = function () {
+        console.log("我是一个方法")
+    }
+
+    // 定义方法的时候省去 :function  属性名与变量名一样可以简化
+    let Obj = {
+        name,
+        fn,
+        impore(){
+            console.log("我是impore")
+        }
+    }
+</script>
+</body>
+</html>
