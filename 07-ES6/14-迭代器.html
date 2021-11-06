@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr1 = ["a","b","c"]
+    let iterator = arr1[Symbol.iterator]() // 这里返回一个迭代器对象，并且拥有一个next方法
+    console.log(iterator.next()) // 第一调用next方法指针自动指向第一个成员  {value: 'a', done: false}
+    console.log(iterator.next()) // {value: 'b', done: false}
+    console.log(iterator.next()) // {value: 'c', done: false}
+    console.log(iterator.next()) // {value: undefined, done: true}  当指针指向下一个成员时，成员不存在则done为true
+
+</script>
+</body>
+</html>
