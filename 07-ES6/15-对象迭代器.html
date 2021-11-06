@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 需求 使用 for ... of 遍历 banji对象 获取banji中sus中的值
+    let banji = {
+        name:"三年二班",
+        sus:[
+            "xiaoming",
+            "xiaojiang",
+            "xiaocai",
+            "xiaoli"
+        ],
+        [Symbol.iterator](){
+            let index = 0;
+            return {
+                next:()=>{ // 这里用箭头函数就不用保存this了 不用箭头函数可以在外层保存一个_this=this
+                    if(index < this.sus.length){
+                        const result = {value:this.sus[index],done:false}
+                        index ++
+                        return result
+                    }else{
+                        return {value:undefined,done:true}
+                    }
+                }
+            }
+        }
+    }
+
+    for(let i of banji){
+        console.log(i)
+    }
+</script>
+</body>
+</html>
