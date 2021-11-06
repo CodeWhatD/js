@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // yield 作用相当于给gen代码块中的语句进行分块 以下面的生成器函数为例子 首先 打印111到第一个yield是一块  第一yield到第二个yield是一块
+    // 第二个yield到第三个yield是一块 第四个yield到最后是一块
+    let gen = function * () {
+        // console.log("111")
+        yield "你"
+        // console.log("222")
+        yield "好"
+        // console.log("333")
+        yield "棒"
+        // console.log("444")
+    }
+
+    let iterator = gen()
+    // iterator.next()  // 111
+    // iterator.next()  // 222
+    // iterator.next()  // 333
+    // iterator.next()  // 444
+
+    console.log(iterator.next()) // {value: '你', done: false}
+    console.log(iterator.next()) // {value: '好', done: false}
+    console.log(iterator.next()) // {value: '棒', done: false}
+    console.log(iterator.next()) // {value: undefined, done: true}
+
+</script>
+</body>
+</html>
