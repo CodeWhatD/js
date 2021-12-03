@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Promise 基本使用
+        let p = new Promise((resolve, reject) => { // 这里两个回调函数的名字可以随便叫 但是潜规则就是这俩
+
+            setTimeout(() => {
+                // 1.演示读取数据成功
+                // let data = "数据库的用户数据"
+                // resolve(data)
+
+                // 2.演示失败的读取数据
+                let data = "数据库读取失败"
+                reject(data)
+            }, 1000)
+        })
+        p.then(function(value) {
+            console.log(value) // 数据库的用户数据
+        }, function(reason) {
+            console.error(reason)
+        })
+    </script>
+</body>
+
+</html>
