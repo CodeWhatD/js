@@ -17,10 +17,10 @@
   var deepCopy = function (newObj,oldObj) {
     for(var i in oldObj){
       var item = oldObj[i]
-      if(i instanceof Array) { // Array 判断在 Object前面 是因为前者也是一个对象 如果你Object放在前面就算是一个数组那么也会进入判断。
+      if(item instanceof Array) { // Array 判断在 Object前面 是因为前者也是一个对象 如果你Object放在前面就算是一个数组那么也会进入判断。
         newObj[i] = []
         deepCopy(newObj[i],item)
-      }else if(i instanceof Object) {
+      }else if(item instanceof Object) {
         newObj[i] = {}
         deepCopy(newObj[i],item)
       }else {
