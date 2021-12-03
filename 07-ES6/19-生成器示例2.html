@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let user = function() {
+            setTimeout(() => {
+                let userData = "用户数据"
+                iterator.next(userData)
+            }, 1000)
+        }
+        let goods = function() {
+            setTimeout(() => {
+                let goodsData = "商品数据"
+                iterator.next(goodsData)
+            }, 1000)
+        }
+        let order = function() {
+            setTimeout(() => {
+                let orderData = "订单数据"
+                iterator.next(orderData)
+            }, 1000)
+        }
+
+        function* gen() {
+            console.log("要开始咯？")
+            let userData = yield user()
+            console.log(userData)
+            let goodsData = yield goods()
+            console.log(goodsData)
+            let orderData = yield order()
+            console.log(orderData)
+        }
+        let iterator = gen()
+        iterator.next()
+    </script>
+</body>
+
+</html>
