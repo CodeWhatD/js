@@ -13,7 +13,7 @@
         function* gen(args) {
             console.log(args)
             let one = yield 111;
-            console.log(one)
+            console.log("第一次", one)
             let two = yield 222;
             console.log(two)
             let three = yield 333;
@@ -21,10 +21,11 @@
         }
 
         let iter = gen("DDD")
-            // iter.next("AAA") 这种语句将会作为生成器函数中上一个yield语句的返回值
+        iter.next()
         console.log(iter.next('AAA'))
         console.log(iter.next('BBB'))
         console.log(iter.next('CCC'))
+            // 简单理解：每一次iter.next(“参数”) 都会是上一个yield的返回值
     </script>
 </body>
 
