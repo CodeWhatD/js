@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 需求： 一秒之后打印A 两秒之后打印B 三秒之后打印C
+        let one = function() {
+            setTimeout(() => {
+                console.log("A")
+                iterator.next()
+            }, 1000)
+        }
+        let two = function() {
+            setTimeout(() => {
+                console.log("B")
+                iterator.next()
+            }, 2000)
+        }
+        let three = function() {
+            setTimeout(() => {
+                console.log("C")
+                iterator.next()
+            }, 3000)
+        }
+
+        function* gen() {
+            yield one();
+            yield two();
+            yield three();
+        }
+        let iterator = gen()
+        iterator.next()
+    </script>
+</body>
+
+</html>
