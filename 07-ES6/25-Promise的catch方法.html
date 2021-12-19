@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Promise中的.catch方法相当于一个语法糖
+        let p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject('出错了')
+            }, 1000)
+        })
+
+
+        // 这种写法和.then直接指定第二个参数是一样的 相当于一个语法糖，不用传第一个成功的回调了
+        p.catch((reason) => {
+            console.warn(reason)
+        })
+    </script>
+</body>
+
+</html>
