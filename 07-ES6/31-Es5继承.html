@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ES5继承父类并且继承父类的方法
+        let Phone = function(brand, age) {
+            this.brand = brand
+            this.age = age
+        }
+
+        Phone.prototype.play = function() {
+            console.log('我在玩游戏')
+        }
+
+        let SmartPhone = function(brand, age, color, size) {
+            Phone.call(this, brand, age)
+            this.color = color;
+            this.size = size
+        }
+
+        SmartPhone.prototype = new Phone()
+        SmartPhone.prototype.constructor = SmartPhone
+        let iphone = new SmartPhone('苹果', 30, 'red', '111.3px')
+        iphone.play()
+    </script>
+</body>
+
+</html>
