@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Phone {
+            constructor(brand, size) {
+                this.brand = brand
+                this.size = size
+            }
+            sing() {
+                console.log('我在唱歌')
+            }
+        }
+
+        class SmartPhone extends Phone {
+            constructor(brand, size, color) {
+                super(brand, size) // 等同于 Phone.call(brand,size)
+                this.color = color
+            }
+            play() {
+                console.log('我在打游戏')
+            }
+        }
+
+        let iphone = new SmartPhone('苹果', '18inch', 'red')
+        console.log(iphone)
+        iphone.sing()
+        iphone.play()
+    </script>
+</body>
+
+</html>
