@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明一个set实例，自动去重
+        let s = new Set([1, 2, 3, 4, 1])
+        console.log(s)
+            // 长度
+        console.log(s.size) // 4
+            // 添加一个元素
+        s.add(5)
+        console.log(s)
+            // 删除一个元素
+        s.delete(2)
+        console.log(s)
+            // 查看是否拥有一个元素
+        console.log(s.has(1)) // true 没找到就返回false
+            // 清空这个集合
+            // s.clear()
+            // console.log(s)
+            // 内置迭代器 可以for of
+        for (let i of s) {
+            console.log(i)
+        }
+    </script>
+</body>
+
+</html>
