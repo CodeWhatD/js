@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 这个文件简单介绍一下Map的使用，以前对象key只能为字符串，现在对 象的key可以是一个对象
+        let m = new Map()
+        m.set('key1', 123)
+        console.log(m)
+        m.set('f1', function() {
+            console.log(1)
+        })
+        let key = {
+            name: '小明'
+        }
+        m.set(key, '我的key是一个对象')
+
+        // size 
+        console.log(m.size) // 3
+
+        // has
+        console.log(m.has(key)) // true
+
+        // get
+        console.log(m.get(key)) // 我的key是一个对象
+
+        // delete
+        console.log(m.delete(key))
+        console.log(m)
+
+        // clear
+        console.log(m.clear())
+        console.log(m)
+    </script>
+</body>
+
+</html>
