@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Number.EPSILON 是JS中的最小精度
+        // console.log(0.1 + 0.2 === 0.3) false
+        /*
+            原因在于在JS中采用的IEEE 754的双精度标准，计算机内部存储数据的编码的时候，0.1在计算机内部根本就不是精确的0.1
+            ，而是一个有舍入误差的0.1。当代码被编译或解释后，0.1已经被四舍五入成一个与之很接近的计算机内部数字，
+            以至于计算还没开始，一个很小的舍入错误就已经产生了。这也就是 0.1 + 0.2 不等于0.3 的原因。
+        */
+        function equal(x, y) {
+            if (x - y < Number.EPSILON) {
+                return true
+            }
+            return false
+        }
+
+        console.log(equal(0.1, 0.2))
+
+        // isNan 判断你输入的val是否是一个非数值
+        console.log(Number.isNaN('---')) // false
+
+        // parseInt or parseFloat 将一个字符串转换为整数 或 浮点数
+        console.log(Number.parseInt('111111dadad')) // 如果开头是一个字母 那么返回NaN
+        console.log(Number.parseFloat('1.1111dada'))
+
+        // 判断一个数是否为整数
+        console.log(Number.isInteger('1.11')) // false
+        console.log(Number.isInteger('aa111')) // false
+        console.log(Number.isInteger(111)) // true
+
+        // 将数字的小数部分抹掉
+        console.log(Math.trunc(11.11)) // 11
+
+        // 检测一个数为正数还是负数还是0
+        console.log(Math.sign(10000)) // 1
+        console.log(Math.sign(0)) // 0
+        console.log(Math.sign(-1111)) // -1
+    </script>
+</body>
+
+</html>
