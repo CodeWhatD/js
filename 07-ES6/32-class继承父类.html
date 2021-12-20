@@ -28,6 +28,10 @@
             play() {
                 console.log('我在打游戏')
             }
+            sing() {
+                // 这里注意 子类无法直接调用父类的同名方法 用super也不行 只能进行重写
+                console.log('子类在唱歌')
+            }
         }
 
         let iphone = new SmartPhone('苹果', '18inch', 'red')
