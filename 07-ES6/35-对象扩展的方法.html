@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.Object.is 比较两个值
+        console.log(Object.is(120, 120)) // true
+        console.log(Object.is({
+                a: 1
+            }, {
+                a: 1
+            })) // false 此处比的是内存地址
+
+        let a = {
+            a: 1
+        }
+        let b = a
+        console.log(Object.is(a, b)) // true 内存地址一样
+
+        // 与 === 不同之处 对于NaN来说  用对象的扩展方法是相同的 但是===是不同的
+        console.log(Object.is(NaN, NaN)) // true
+        console.log(NaN === NaN)
+
+        // 2.Object.setPrototypeOf  Object.getPrototypeOf
+        const school = {
+            name: '实验小学'
+        }
+        const city = {
+            size: '10000mm',
+            mainName: '天津市'
+        }
+        Object.setPrototypeOf(school, city)
+        console.log(school)
+    </script>
+</body>
+
+</html>
