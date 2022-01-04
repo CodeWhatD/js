@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        // 1. 导入方式
+        import * as app from './app.js';
+        console.log(app);
+
+        // 2.解构的方式
+        import {nba} from './app.js' // 对于直接暴露的指定对象或函数
+        import {default as m1} from './app.js' // 对于default暴露
+        console.log(nba)
+        console.log(m1)
+
+        // 3.简单的导入 只针对于default
+        import m2 from './app.js'
+        console.log(m2) // 只会打印default的暴露对象
+    </script>
+</body>
+</html>
