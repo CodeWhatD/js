@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+                    await 一般后面是跟着一个Promise对象的 如果Promise对象为成功则是成功的值
+                    await 后面如果是失败的Promise 需要使用 try catch 来捕获
+                */
+        const getUserInfo = function() {
+            return new Promise((resolve, reject) => {
+                resolve('用户数据')
+            })
+        }
+        const getMenuData = function() {
+            return new Promise((resolve, reject) => {
+                reject('报错啦')
+            })
+        }
+        async function getData() {
+            try {
+                let userInfo = await getUserInfo()
+                console.log(userInfo) // 用户数据
+                let menuData = await getMenuData()
+                console.log(menuData)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getData()
+    </script>
+</body>
+
+</html>
