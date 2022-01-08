@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 因为这里接口设置了跨域 所以无法打印结果 但是写法是对的
+        const ajaxSend = function(url) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", url)
+                xhr.send()
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            resolve(xhr.response)
+                        } else {
+                            reject(xhr.status)
+                        }
+                    }
+                }
+            })
+        }
+
+        async function asyncFunction(url) {
+            try {
+                let result = await ajaxSend(url)
+                console.log(result)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        asyncFunction("https://way.jd.com/he/freeweather?city=beijing&appkey=66ba487bf1cffa80ab66fb2491a0518f")
+    </script>
+</body>
+
+</html>
