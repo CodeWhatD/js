@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function f() {
+            return new Promise((resolve)=>{
+                resolve('你好啊')
+            })
+        }
+        const result = f()
+        console.log(result)
+            /*
+                async 返回值是一个Promise 当你函数中返回的不是一个Promise对象是 它就会自动把返回值搞成一个成功的Promise
+                如果你是抛出错误那么就会给你一个失败的Promise
+                async 当你手动返回一个Promise的时候 那么结果也是一个Promise 这个结果的状态和值跟你自己手动返回的Promise有关
+            */
+    </script>
+</body>
+
+</html>
