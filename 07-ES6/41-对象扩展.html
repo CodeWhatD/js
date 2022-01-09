@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // rest参数
+        let connect = function({host,port,...user}) {
+            console.log(host)
+            console.log(port)
+            console.log(user)
+        }
+
+        connect({host:'192.168.1.1',port:'8080',name:'杜梦越',password:'root'})
+
+
+        // ...扩展对象
+        const abos = {
+           a:'123' 
+        }
+        const boas = {
+            b: '456'
+        }
+
+        const allOs = {
+            ...abos,
+            ...boas
+        }
+        console.log(allOs) // => {a:'123',b:'456'}
+    </script>
+</body>
+</html>
