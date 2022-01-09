@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const userInfo = {
+            name: 'ddd',
+            age: 12,
+            hobbies: ['篮球','羽毛球']
+        }
+        // keys
+        console.log(Object.keys(userInfo))
+        // values
+        console.log(Object.values(userInfo))
+        // entries
+        console.log(Object.entries(userInfo)) // [['name','ddd'],['age',12],['hobbies',['篮球','羽毛球']]]
+        // entries 和Map结合  Map可以接收一个数组 数组中的每一个元素也是一个键值对应的数组
+        const mp = new Map(Object.entries(userInfo))
+        console.log(mp.has('name')) // true
+        console.log(mp.has('fullName')) // false
+        console.log(mp.get('hobbies')) // ['篮球','羽毛球']
+        // getOwnPropertyDescriptor
+        const obj = Object.create(null,{
+            name: {
+                configurable:true,
+                writable:true,
+                value:'dmy'
+            }
+        })
+        console.log(Object.getOwnPropertyDescriptors(obj)) // 获取对象的深层信息 比如可不可以删除或者可不可以枚举 我们可以利用这个来克隆对象
+    </script>
+</body>
+
+</html>
