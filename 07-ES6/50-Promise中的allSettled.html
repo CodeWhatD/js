@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve('用户数据')
+            },1000)
+        })
+        
+        const p2 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                // resolve('商品数据')
+                reject('报错了')
+            })
+        })
+
+        const app = Promise.allSettled([p1,p2]) // 这里返回的一定是一个成功的状态 并且里面包含你传入参数的所有Promise的内容
+        console.log(app)
+
+        // 与 all方法不同的是  all方法只要有一个是不成功的那么状态就是不成功
+    </script>
+</body>
+</html>
