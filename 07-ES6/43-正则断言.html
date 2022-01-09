@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 正向断言
+        let str = 'JS5201314么么555啦啦'
+
+        // 需求1 获取后面是啦的前面的数字
+        let reg1 = /\d+(?=啦)/
+        console.log(reg1.exec(str))
+
+        // 反向断言
+        // 需求获取前面是么的后面的数字
+        let reg2 = /(?<=么)\d+/
+        console.log(reg2.exec(str))
+    </script>
+</body>
+
+</html>
