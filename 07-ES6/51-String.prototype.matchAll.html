@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const info = `
+            <li>
+                <a>肖申克的救赎</a>
+                <p>犯罪电影</p>
+            </li>
+            <li>
+                <a>疯狂动物城</a>
+                <p>动画片</p>
+            </li>
+        `
+
+        let reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg
+
+        const result = info.matchAll(info)
+        const arr = [...result]
+        console.log(arr)
+    </script>
+</body>
+
+</html>
