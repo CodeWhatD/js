@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function main(config) {
+            const dbHost = config?.user?.host // 判断是否传入了config如果传入了就判断后面有没有user如果有就取.host
+            console.log(dbHost) // 这里就算没没取到也不会报错 会打印undefined
+        }
+        main()
+    </script>
+</body>
+
+</html>
