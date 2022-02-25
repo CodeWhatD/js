@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// WeakSet与Set类似，存储一个不重复得集合，但是也有一些不同
+			// 不同1 WebSet只可以存储对象别的都不行
+			// const ws1 = new WeakSet().add(1) // 报错
+			// const ws2 = new WeakSet().add([1,2]) // 报错
+			const obj = { name: "dmy" };
+			const ws3 = new WeakSet().add(obj);
+			console.log(ws3); // 打印{{...}}
+			console.log(ws3.has(obj)); // true
+
+			// 不同2（核心）
+			/*
+          WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，也就是说，
+        如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，
+        不考虑该对象还存在于 WeakSet 之中。
+          弱引用：垃圾回收机制有一套自己的回收算法，我们都知道一个函数执行完成后该函数在调用栈中创建的执行上下文会被销毁，
+        这里说的销毁，其实指的就是执行上下文中环境变量、词法变量中的数据存储所占据的内存空间被垃圾回收机制所回收，那么垃圾回收机制不考虑 WeakSet 
+        对该对象的引用是不是就意味着垃圾回收机制不会回收 WeakSet 对象里面的数据所占据的内存呢？不！不是的！代码是最好的解释
+      */
+
+			let obj2 = { name: "firstName" };
+			let ws1 = new WeakSet();
+			ws1.add(obj2);
+			obj2 = null; // 将一个对象置为null,意味着这个变量的内存可以被回收了
+      console.log(ws1) // WekSet{}
+
+			let obj3 = { name: "nihao " };
+			let n1 = obj3.name;
+			obj3 = null;
+			console.log(n1); // nihao
+      // 对比看 WeakSet垃圾回收机制会自动回收该对象所占用的内存
+      /*
+        注意问题 我们将obj2置为null之后，WeakSet实例应该是没有引用并且执行垃圾回收了，
+        但是浏览器缺还是打印除了 {name: 'firstName'} 这是为什么呢？概念错了，其实不然，
+        因为你在浏览器看到得打印时并没有执行垃圾回收，但是它的确执行了
+      */
+		</script>
+	</body>
+</html>
