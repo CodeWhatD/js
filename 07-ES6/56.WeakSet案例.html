@@ -18,7 +18,7 @@
 			ws.add(btn);
 			btn.addEventListener("click", () => {
 				container.removeChild(btn);
-        console.log(ws); // WeakSet{} 因为时强引用所以WeakSet执行垃圾回收，这样就避免了内存泄漏
+        console.log(ws); // WeakSet{} 因为是弱引用所以WeakSet执行垃圾回收，这样就避免了内存泄漏
 			});
 		</script>
 	</body>
