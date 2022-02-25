@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="wrap">
+			<button id="btn">按钮</button>
+		</div>
+		<script>
+      // 避免内存泄漏
+			const container = document.getElementById("wrap");
+			const btn = document.getElementById("btn");
+			const ws = new WeakSet();
+			ws.add(btn);
+			btn.addEventListener("click", () => {
+				container.removeChild(btn);
+        console.log(ws); // WeakSet{} 因为时强引用所以WeakSet执行垃圾回收，这样就避免了内存泄漏
+			});
+		</script>
+	</body>
+</html>
