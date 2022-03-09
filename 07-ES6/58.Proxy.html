@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/*
+        为什么使用 Proxy 替代 Object.defineProperty，简单总结Proxy的几点优势
+        Proxy 是对整个对象的代理，而 Object.defineProperty 只能代理某个属性
+        对象上新增属性，Proxy 可以监听到，Object.defineProperty 不能
+        数组新增修改，Proxy 可以监听到，Object.defineProperty 不能
+        若对象内部属性要全部递归代理，Proxy 可以只在调用的时候递归，而 Object.definePropery 需要一次完成所有递归，性能比 Proxy 差
+        使用也很简单，Proxy本质是构造函数，通过new即可产生对象，它接收两个参数：
+
+        target表示的就是要拦截（代理）的目标对象
+        handler是用来定制拦截行为
+      */
+			const Obj = new Proxy(
+				{},
+				{
+					get(target, key) {
+						console.log("获取");
+						return target[key];
+					},
+					set(target, key, value) {
+						target[key] = value;
+						console.log("设置");
+					},
+				}
+			);
+			Obj.name = "杜孟曰"; // 触发set 打印设置
+			console.log(Obj.name); // 触发get 打印获取
+		</script>
+	</body>
+</html>
