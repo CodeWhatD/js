@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
       // 实现一个数组中有十个数组，里面第一个数组从1开始 第二个就是从11 以此类推
-			let XSTART = 0;
+      let XSTART = 0;
       let YSTART = 0;
-			const WIDTH = 10;
-			const fakeArray = { length: 10 };
-			const newArray = Array.from(fakeArray, (item) => {
-        
-				return Array.from({ length: 10 }, (item) => {
-					
-				});
-			});
-			console.log(newArray);
-		</script>
-	</body>
+      const WIDTH = 10;
+      const fakeArray = { length: 10 };
+      const newArray = Array.from(fakeArray, (item, y) => {
+        return Array.from({ length: 10 }, (item, x) => {
+          return y * 10 + x + 1;
+        });
+      });
+      console.log(newArray);
+    </script>
+  </body>
 </html>
