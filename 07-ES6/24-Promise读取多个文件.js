@@ -16,7 +16,6 @@ p.then(value => {
     return new Promise((resolve, reject) => {
         fs.readFile('./03-解构.html', (err, data) => {
             if (err) reject(err)
-            console.log()
             value.push(data)
             resolve(value)
         })

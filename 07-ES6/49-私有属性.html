@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        class Person {
-            name;
-            #age;
-            #weight;
-            constructor(name, age, weight) {
-                this.name = name
-                this.#age = age
-                this.#weight = weight
-            }
-            intro() {
-                console.log(this.name)
-                console.log(this.#age)
-                console.log(this.#weight)
-            }
+      class Person {
+        name;
+        #age;
+        #weight;
+        constructor(name, age, weight) {
+          this.name = name;
+          this.#age = age;
+          this.#weight = weight;
         }
+        intro() {
+          console.log(this);
+          console.log(this.name);
+          console.log(this.#age);
+          console.log(this.#weight);
+        }
+      }
 
-        const p = new Person('小', 18, 150)
+      const p = new Person('小', 18, 150);
 
-        // console.log(p.#age) // 报错 外部无法访问
-        p.intro()
+      // console.log(p.#age) // 报错 外部无法访问
+      p.intro();
     </script>
-</body>
-
+  </body>
 </html>

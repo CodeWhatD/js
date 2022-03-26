@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
-<button>按钮</button>
-<script>
-    var that
-    class Person {
+  </head>
+  <body>
+    <button>按钮</button>
+    <script>
+      var that;
+      class Person {
         constructor(uname) {
-            that = this
-            // 类中的this 指向的是实例对象
-            this.uname = uname
+          that = this;
+          // 类中的this 指向的是实例对象
+          this.uname = uname;
 
-            this.btn = document.querySelector("button")
-            this.btn.onclick = this.sing
+          this.btn = document.querySelector('button');
+          this.btn.onclick = this.sing;
+          console.log(this);
         }
-        sing () {
-            // 方法中的this指向的是调用者 这里打印的this就是button 而不是实例对象 因为button这个对象调用了sing
-            console.log(this) // button
-            console.log(that.uname) // 郭洋
-            // 如果你在这里就想使用实例化的属性可以在外部声明一个that在构造器中保存this
+        sing() {
+          // 方法中的this指向的是调用者 这里打印的this就是button 而不是实例对象 因为button这个对象调用了sing
+          console.log(this); // button
+          console.log(that.uname); // 郭洋
+          // 如果你在这里就想使用实例化的属性可以在外部声明一个that在构造器中保存this
         }
-    }
+      }
 
-    var gy = new Person('郭洋')
-    gy.sing() // 打印Person实例出来的对象 但是按钮按的话就是打印按钮元素
-</script>
-</body>
+      var gy = new Person('郭洋');
+      gy.sing() // 打印Person实例出来的对象 但是按钮按的话就是打印按钮元素
+    </script>
+  </body>
 </html>

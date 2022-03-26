@@ -17,8 +17,8 @@
 <script>
     var mobox = document.querySelector('.mouserbox')
     mobox.addEventListener("mousemove",function (e){
-        var x = e.pageX - mobox.offsetLeft // 获取鼠标在盒子中的X坐标
-        var y = e.pageY - mobox.offsetTop // 获取鼠标在盒子中的Y坐标
+        var x = e.clientX - mobox.offsetLeft // 获取鼠标在盒子中的X坐标
+        var y = e.clientY - mobox.offsetTop // 获取鼠标在盒子中的Y坐标
         mobox.innerHTML = `x坐标为${x}，y坐标是${y}`
     })
 </script>
