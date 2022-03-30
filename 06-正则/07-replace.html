@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
-<textarea></textarea>
-<button>提交</button>
-<div></div>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Title</title>
+	</head>
+	<body>
+		<textarea></textarea>
+		<button>提交</button>
+		<div></div>
 
-<script>
-  var text = document.querySelector("textarea")
-  var btn = document.querySelector("button")
-  var idv = document.querySelector("div")
+		<script>
+			var text = document.querySelector("textarea");
+			var btn = document.querySelector("button");
+			var idv = document.querySelector("div");
 
-  btn.addEventListener("click",function () {
-    var newText = text.value.replace(/激情/g,"**")
-    // 把字符串中包含激情的字符全部换成**
-    idv.innerText = newText
+			btn.addEventListener("click", function () {
+				var newText = text.value.replace(/激情/g, "**");
+				// 把字符串中包含激情的字符全部换成**
+				idv.innerText = newText;
 
-    // 模式
-    // g 全局 全局搜索你这个字符 只要符合就替换
-    // i 忽略大小写
-    // gi 全局搜索+忽略大小写
-  })
-</script>
-</body>
+				// 模式
+				// g 全局 全局搜索你这个字符 只要符合就替换
+				// i 忽略大小写
+				// gi 全局搜索+忽略大小写
+			});
+
+			// 高级用法
+			const str = "小红捐了15,小白捐了50,小绿捐了20";
+			// 需求将所有捐款小于50的替换为**
+			const newStr = str.replace(/\d+/g, (val, index, orgVal) => {
+				return Number(val) < 50 ? "**" : val;
+			});
+			console.log(newStr);
+		</script>
+	</body>
 </html>
