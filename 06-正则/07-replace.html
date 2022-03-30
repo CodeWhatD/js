@@ -29,6 +29,10 @@
 			const str = "小红捐了15,小白捐了50,小绿捐了20";
 			// 需求将所有捐款小于50的替换为**
 			const newStr = str.replace(/\d+/g, (val, index, orgVal) => {
+        // 解释一下这三个参数
+        // val => 你匹配的值 这里就是指所有的数字
+        // index => 匹配的值的第一个元素的索引
+        // orgVal => 原值 就是那个str
 				return Number(val) < 50 ? "**" : val;
 			});
 			console.log(newStr);
