@@ -46,5 +46,20 @@
 			return acc
 		}, [])
 		console.log(newArr)
+
+		// 功能性函数管道
+		const add = (x) => x + 2
+		const double = (x) => x * 2
+
+		const pipeFunction =
+			(...args) =>
+			(input) =>
+				args.reduce((acc, cur) => {
+					return cur(acc)
+				}, input)
+
+		const twoFunction = pipeFunction(add, double)
+		const resultPipe = twoFunction(3)
+		console.log(resultPipe)
 	</script>
 </html>
