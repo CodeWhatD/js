@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>reduce学习</title>
+	</head>
+	<body></body>
+	<script>
+		// array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+		// total 累加器
+		// currentValue 你数组的索引项
+		// currentIndex 你数组的索引
+		// arr 原数组
+		// initialValue 可选，意思为初始值，如果你给了那么初始值就是你给的，如果你没有给那么初始值就是你数组的第0项
+		// 1.二维数组转一维
+		const arr = [
+			[1, 2],
+			[3, 4],
+		]
+		const result = arr.reduce((acc, cur) => {
+			return acc.concat(cur)
+		}, [])
+		console.log(result)
+
+		// 2.计算数组中元素在数组出现的次数
+		const nameSpce = ['dmy', 'dmy', 'dmc', 'dmc', 'wjl', 'dsj']
+		const nameSpaceResult = nameSpce.reduce((acc, cur) => {
+			if (acc[cur]) {
+				acc[cur]++
+			} else {
+				acc[cur] = 1
+			}
+			return acc
+		}, {})
+		console.log(nameSpaceResult)
+
+		// 3.数组去重
+		const oldArray = [1, 1, 1, 3, 4, 5, 5, 6, 6, 7, 7]
+		const newArr = oldArray.reduce((acc, cur) => {
+			if (acc.indexOf(cur) !== -1) {
+				return acc
+			}
+			acc.push(cur)
+			return acc
+		}, [])
+		console.log(newArr)
+	</script>
+</html>
