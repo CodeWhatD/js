@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      // 实现一个数组中有十个数组，里面第一个数组从1开始 第二个就是从11 以此类推
-      const WIDTH = 10;
-      const fakeArray = { length: 10 };
-      const newArray = Array.from(fakeArray, (item, y) => {
-        return Array.from({ length: 10 }, (item, x) => {
-          return y * 10 + x + 1;
-        });
-      });
-      console.log(newArray);
-    </script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 实现一个数组中有十个数组，里面第一个数组从1开始 第二个就是从11 以此类推
+			const WIDTH = 10
+			const fakeArray = { length: 10 }
+			const newArray = Array.from(fakeArray, (item, y) => {
+				return Array.from({ length: 10 }, (item, x) => {
+					return y * 10 + x + 1
+				})
+			})
+			console.log(newArray)
+
+			// Array.form的第三个参数，可以定义回调的this
+      // 注意这里如果想设置第三个参数，回调函数那里不可以用箭头函数，因为箭头函数没有自己的this会往上找到window，用匿名函数即可
+			const obj = {
+				0: 1,
+				1: 2,
+				2: 3,
+				length: 3,
+			}
+			const data = Array.from(
+				obj,
+				function (v, k) {
+					return {
+						student: `${this.prefix}v`,
+						idx: k,
+					}
+				},
+				{
+					prefix: 'No.',
+				}
+			)
+			console.log(data)
+		</script>
+	</body>
 </html>
