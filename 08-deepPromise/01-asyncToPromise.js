@@ -1,3 +1,4 @@
+// 本文件使用 Promise 与生成器 仿async
 function generatorToAsync(generatorFn) {
 	return function () {
 		const gen = generatorFn.apply(this, arguments) // gen有可能传参
