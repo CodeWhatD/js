@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<script>
-    // 1.箭头函数写法
-    // let fn = ()=>{
-    //     console.log("我是箭头函数")
-    // }
-    // fn()
+	<head>
+		<meta charset="UTF-8" />
+		<title>Title</title>
+	</head>
+	<body>
+		<script>
+			// 1.箭头函数写法
+			// let fn = ()=>{
+			//     console.log("我是箭头函数")
+			// }
+			// fn()
 
-    // 2.箭头函数的this 箭头函数this是你在定义的作用域下的this 比如你在window作用域下那么this就是window 如果你在块级那么就是块级
+			// 2.箭头函数的this 箭头函数this是你在定义的作用域下的this 比如你在window作用域下那么this就是window 如果你在块级那么就是块级
 
-    window.name = "我是window"
-    let fn1 = function () {
-        console.log(this.name)
-    }
-    let fn2 = ()=>{
-        console.log(this.name)
-    }
-    fn1() // 我是window
-    fn2() // 我是window  这里可以打印是因为你是在window下面定义的箭头函数，所以可以拿到
-    let Obj = {
-        school:"仁爱学院"
-    }
-    // 3.箭头函数使用 apply 或者call 都不可以改变this
-    fn2.call(Obj) // 我是window
+			window.name = "我是window";
+			let fn1 = function () {
+				console.log(this.name);
+			};
+			let fn2 = () => {
+				console.log(this.name);
+			};
+			fn1(); // 我是window
+			fn2(); // 我是window  这里可以打印是因为你是在window下面定义的箭头函数，所以可以拿到
+			let Obj = {
+				school: "仁爱学院",
+			};
+			// 3.箭头函数使用 apply 或者call 都不可以改变this
+			fn2.call(Obj); // 我是window
 
+			// 4.箭头函数的缩写
+			// 1) 参数只有一个
+			let fn3 = (a) => {
+				console.log("只有一个参数");
+			};
+			// 2)当代码体只有一行
+			let fn4 = () => console.log("我只有这一个语句");
 
-    // 4.箭头函数的缩写
-        // 1) 参数只有一个
-    let fn3 = a=>{
-        console.log("只有一个参数")
-    }
-        // 2)当代码体只有一行
-    let fn4 = ()=>console.log("我只有这一个语句")
-</script>
-</body>
+            // 5.箭头函数没有arguments 只能用...args
+            
+		</script>
+	</body>
 </html>
