@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.root {
+				width: 500px;
+				height: 700px;
+				border: 10px solid darkcyan;
+				overflow: scroll;
+			}
+			img {
+				width: 500px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="root">
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+			<img src="" />
+		</div>
+	</body>
+	<script>
+		const BASE_URL = "./img/OneImg.png";
+		const imgList = [...document.querySelectorAll("img")];
+		const io = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((item) => {
+					console.log(item);
+					if (item.isIntersecting) {
+						// 如果元素出现在可视窗口
+						item.target.src = BASE_URL;
+						// 加载完成之后停止监听当前这个元素
+						io.unobserve(item.target);
+					}
+				});
+			},
+			{
+				root: document.querySelector(".root"),
+			}
+		);
+		imgList.forEach((item) => {
+			io.observe(item);
+		});
+	</script>
+</html>

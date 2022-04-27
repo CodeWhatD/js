@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="idv">
+			<p id="pv">1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+			<p>1111111111111</p>
+		</div>
+	</body>
+	<script>
+		const rootDom =  document.getElementById("idv");
+		const dom = document.getElementById("pv");
+		const options = {
+			root: null,
+			rootMargin: "0px",
+			thresholds: 1,
+		};
+		const io = new IntersectionObserver((entries) => {
+			// 每你监听的元素出现或者消失在可视窗口打印
+			console.log(entries);
+			// Do something
+		}, options);
+		// 如果要监听元素必须执行observe方法
+		io.observe(dom);
+	</script>
+	<style>
+		#idv {
+			width: 500px;
+			height: 500px;
+			background-color: pink;
+			overflow: scroll;
+		}
+	</style>
+</html>
