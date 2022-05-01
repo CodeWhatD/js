@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// Proxy 使一个对象继承proxy的get操作
+			const prop = new Proxy(
+				{},
+				{
+					get(target, key) {
+						console.log(`Get${key}`)
+						return target[key]
+					},
+					set(target, key, value, context) {
+						// 第三个参数是设置的值
+            // 第四个参数为Proxy对象本身
+						console.log(`Set${key}and${value}`)
+					},
+				}
+			)
+			const obj = Object.create(prop)
+
+			obj.foo = 1
+		</script>
+	</body>
+</html>
