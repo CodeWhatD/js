@@ -59,7 +59,7 @@
 	</body>
 	<script src="./index.js"></script>
 	<script>
-		const throttleFn = () => {
+		const throttleFn = function() {
 			console.log("滚动了");
 		};
 		document.addEventListener("scroll", throttle(throttleFn, 1000));
