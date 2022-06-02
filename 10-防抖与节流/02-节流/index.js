@@ -1,0 +1,11 @@
+const throttle = function (fn, time) {
+	let timeOne = 0;
+	return () => {
+		let timeTwo = new Date();
+		if (timeTwo - timeOne > time) {
+			let args = arguments;
+			fn.apply(this, args);
+			timeOne = timeTwo;
+		}
+	};
+};
